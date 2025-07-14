@@ -93,12 +93,80 @@
   }
 }
 
-/* Responsive design for mobile */
+/* == Tic Tac Toe Modern UI Additions == */
+.ttt-board {
+  margin: 0 auto 10px auto;
+  box-sizing: border-box;
+}
+.ttt-board-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.ttt-square {
+  background: var(--bg-secondary, #f8f9fa);
+  color: var(--text-primary, #282c34);
+  border-radius: 8px;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, border 0.18s;
+  user-select: none;
+  cursor: pointer;
+  font-size: 32px;
+  font-weight: 700;
+  border: 2px solid var(--border-color, #e9ecef);
+  box-shadow: none;
+  outline: none;
+}
+.ttt-square:disabled {
+  opacity: 0.78;
+  cursor: not-allowed;
+  background: #e9ecef33;
+}
+.ttt-square[aria-pressed="true"] {
+  background: var(--primary, #1976d2);
+}
+.ttt-controls {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ttt-scoreboard {
+  font-family: inherit;
+  font-size: 1.07em;
+  font-weight: 700;
+  letter-spacing: .55px;
+}
+
+.btn {
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+
 @media (max-width: 768px) {
   .theme-toggle {
     top: 10px;
     right: 10px;
     padding: 8px 16px;
     font-size: 12px;
+  }
+  .ttt-board {
+    padding: 10px;
+  }
+  .ttt-square {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 22px !important;
+    margin: 2.5px;
+  }
+  .App-header {
+    font-size: 16px!important;
   }
 }
