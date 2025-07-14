@@ -4,14 +4,21 @@ import './App.css';
 import GameBoard from './components/GameBoard';
 
 /**
- * Determines the backend API base URL depending on the environment.
- * Adjust this function if running locally or with a proxy.
+ * PUBLIC_INTERFACE
+ * Gets the backend API base URL for all HTTP requests.
+ * 
+ * Uses 'https://vscode-internal-54618-dev.dev01.cloud.kavia.ai:3001/' as required by deployment.
+ * Change BASE_API_URL below for future backend moves.
+ * Falls back to REACT_APP_API_BASE_URL or localhost for local/manual overrides.
  */
+const BASE_API_URL = 'https://vscode-internal-54618-dev.dev01.cloud.kavia.ai:3001/';
+
 function getBackendBaseUrl() {
-  // You may adjust this to match where your backend is running.
-  // For local dev, e.g. 'http://localhost:8000'
-  // For production, you may need to use a dynamic environment variable.
-  return process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
+  return (
+    BASE_API_URL ||
+    process.env.REACT_APP_API_BASE_URL ||
+    'http://localhost:8000'
+  );
 }
 
 // PUBLIC_INTERFACE
